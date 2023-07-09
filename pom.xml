@@ -9,6 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>geteway-service</module>
+        <module>user-service</module>
     </modules>
 
     <parent>

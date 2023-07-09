@@ -1,0 +1,14 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: user-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.97.75.210:8848
+      config:
+        server-addr: 47.97.75.210:8848
+        file-extension: yaml
