@@ -5,13 +5,12 @@ spring:
     name: gateway-service
   main:
     allow-bean-definition-overriding: true
-
   cloud:
     nacos:
       discovery:
-        server-addr: 121.43.234.130:8848
+        server-addr: 47.97.75.210:8848
       config:
-        server-addr: 121.43.234.130:8848
+        server-addr: 47.97.75.210:8848
         file-extension: yaml
     gateway:
       discovery:
