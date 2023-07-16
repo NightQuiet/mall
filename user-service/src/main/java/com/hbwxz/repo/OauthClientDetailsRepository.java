@@ -32,5 +32,5 @@ public interface OauthClientDetailsRepository extends JpaRepository<OauthClientD
     @Query(value = "update oauth_client_details set client_secret = ?1 where client_id = ?2", nativeQuery = true)
     @Modifying
     @Transactional
-    void updateScopeByClientId(String secret, String clientId);
+    void updateSecretByClientId(String secret, String clientId);
 }
