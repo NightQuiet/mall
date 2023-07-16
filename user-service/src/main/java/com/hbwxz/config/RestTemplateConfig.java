@@ -2,6 +2,7 @@ package com.hbwxz.config;
 
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -42,9 +43,11 @@ public class RestTemplateConfig {
     /**
      * httpClient不能直接注入到restTemplate中，所以我们需要通过httpRequestFactory来创建
      * 并且在restTemplate中设置我们的字符集为utf-8
+     * 必须要加@LoadBalanced注解，否则无法使用ribbon的负载均衡也就找不到user-service服务
      * @return
      */
     @Bean
+    @LoadBalanced
     public RestTemplate getRestTemplate(){
         RestTemplate restTemplate = new RestTemplate(httpRequestFactory());
         // 入参的时候我们一般接收utf-8形式的消息
