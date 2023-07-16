@@ -12,3 +12,24 @@ spring:
       config:
         server-addr: 47.97.75.210:8848
         file-extension: yaml
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.97.75.210:3306/oauth2?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Rane8023913
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 10
+      max-lifetime: 30000 # 不能小于30秒，否则默认返回到1800秒
+      connection-test-query: SELECT 1
+  redis:
+    host: 121.43.234.130
+    port: 6379
+    timeout: 10s
+    password: 123456
+    lettuce: # 配置连接池
+      pool:
+        max-active: 50
+        max-idle: 50
+        max-wait: -1ms  # -1表示无限制，最大等待限制
+        min-idle: 0
