@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
  * @date 2023/7/10 21:59
  */
 @Repository
-public interface UserRepository extends JpaRepository<OauthUser,Integer> {
+public interface OauthUserRepository extends JpaRepository<OauthUser,Integer> {
 
     OauthUser queryByUserName(String userName);
 }

@@ -1,7 +1,7 @@
 package com.hbwxz.service;
 
 import com.hbwxz.pojo.OauthUser;
-import com.hbwxz.repo.UserRepository;
+import com.hbwxz.repo.OauthUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
-    private UserRepository userRepository;
+    private OauthUserRepository oAuthUserRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        OauthUser user = userRepository.queryByUserName(username);
+        OauthUser user = oAuthUserRepository.queryByUserName(username);
         if(user!=null){
             return new User(user.getUserName(),user.getPassword(),
                             AuthorityUtils.createAuthorityList(user.getPassword()));
